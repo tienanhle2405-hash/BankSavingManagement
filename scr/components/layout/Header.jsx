@@ -14,7 +14,7 @@ function Header() {
     <div style={headerStyle}>
       {title && <h2 style={{ margin: 0 }}>{title}</h2>}
       <div style={{ fontWeight: "bold", fontSize: 18 }}>
-        💰 Bank Saving Management
+        Bank Saving Management
       </div>
 
       {title && <div style={{ flex: 1 }}></div>}
