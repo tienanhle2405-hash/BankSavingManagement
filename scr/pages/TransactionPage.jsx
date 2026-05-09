@@ -4,10 +4,10 @@ import transactionApi from
 "../api/transactionApi";
 
 import TransactionForm from
-"../components/transaction/TransactionForm";
+"../components/layout/TransactionForm";
 
 import TransactionTable from
-"../components/transaction/TransactionTable";
+"../components/layout/TransactionTable";
 
 function TransactionPage() {
 
