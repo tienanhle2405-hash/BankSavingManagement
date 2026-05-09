@@ -139,3 +139,4 @@ C:\Users\Tiena\OneDrive\Documents\Java_Pj\BankSavingManagement\obj\Debug\net8.0\
 C:\Users\Tiena\OneDrive\Documents\Java_Pj\BankSavingManagement\obj\Debug\net8.0\BankSavingManagement.pdb
 C:\Users\Tiena\OneDrive\Documents\Java_Pj\BankSavingManagement\obj\Debug\net8.0\BankSavingManagement.genruntimeconfig.cache
 C:\Users\Tiena\OneDrive\Documents\Java_Pj\BankSavingManagement\obj\Debug\net8.0\ref\BankSavingManagement.dll
+C:\Users\Tiena\OneDrive\Documents\Java_Pj\BankSavingManagement\obj\Debug\net8.0\BankSavingManagement.sourcelink.json
