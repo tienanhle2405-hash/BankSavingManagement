@@ -1,5 +1,9 @@
 {
-  "dependencies": {
-    "react-router-dom": "^7.15.0"
+  "scripts": {
+    "dev": "swagger-ui-watcher ./api.yaml --port 5150",
+    "build": "swagger-cli build ./api.yaml"
+  },
+  "devDependencies": {
+    "swagger-cli": "^4.0.4"
   }
 }

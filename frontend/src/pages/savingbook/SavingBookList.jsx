@@ -1,30 +1,119 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import savingBookApi from "../../api/savingBookApi";
+
 import Table from "../../components/common/Table";
+import Button from "../../components/common/Button";
 
 function SavingBookList() {
-  const [books, setBooks] = useState([]);
+  const [savingBooks, setSavingBooks] = useState([]);
+
+  const navigate = useNavigate();
+
+  const fetchSavingBooks = async () => {
+    try {
+      const response = await savingBookApi.getAll();
+
+      setSavingBooks(response.data);
+    } catch (error) {
+      console.error(error);
+      alert("Không thể tải dữ liệu savingbook");
+    }
+  };
 
   useEffect(() => {
-    load();
+    fetchSavingBooks();
   }, []);
 
-  const load = async () => {
-    const res = await savingBookApi.getAll();
-    setBooks(res.data);
+  const handleDelete = async (id) => {
+    const confirmDelete = window.confirm(
+      "Bạn có chắc muốn xoá sổ tiết kiệm này?"
+    );
+
+    if (!confirmDelete) return;
+
+    try {
+      await savingBookApi.delete(id);
+
+      alert("Xoá thành công");
+
+      fetchSavingBooks();
+    } catch (error) {
+      console.error(error);
+      alert("Xoá thất bại");
+    }
   };
 
   const columns = [
-    { title: "Book Number", dataIndex: "bookNumber" },
-    { title: "Balance", dataIndex: "balance" },
-    { title: "Interest Rate", dataIndex: "interestRate" },
-    { title: "Term (months)", dataIndex: "termMonth" },
+    {
+      key: "id",
+      title: "ID",
+    },
+    {
+      key: "accountNumber",
+      title: "Account Number",
+    },
+    {
+      key: "customerId",
+      title: "Customer ID",
+    },
+    {
+      key: "balance",
+      title: "Balance",
+    },
+    {
+      key: "interestRate",
+      title: "Interest Rate",
+    },
+    {
+      key: "termMonths",
+      title: "Term Months",
+    },
+    {
+      key: "status",
+      title: "Status",
+    },
   ];
 
   return (
     <div>
-      <h2>Saving Books</h2>
-      <Table columns={columns} data={books} />
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          marginBottom: "20px",
+        }}
+      >
+        <h2>SavingBook Management</h2>
+
+        <Button color="green" onClick={() => navigate("/savingbooks/create")}>
+          Create SavingBook
+        </Button>
+      </div>
+
+      <Table
+        columns={columns}
+        data={savingBooks}
+        renderActions={(item) => (
+          <>
+            <Button
+              color="orange"
+              onClick={() => navigate(`/savingbooks/${item.id}`)}
+            >
+              Detail
+            </Button>
+
+            <Button
+              color="red"
+              onClick={() => handleDelete(item.id)}
+            >
+              Delete
+            </Button>
+          </>
+        )}
+      />
     </div>
   );
 }

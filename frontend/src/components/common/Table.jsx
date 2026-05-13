@@ -1,37 +1,61 @@
-function Table({ columns, data }) {
+function Table({ columns, data, renderActions }) {
   return (
-    <table style={{ width: "100%", borderCollapse: "collapse" }}>
+    <table
+      style={{
+        width: "100%",
+        borderCollapse: "collapse",
+        background: "#fff",
+      }}
+    >
       <thead>
         <tr>
-          {columns.map((col, index) => (
+          {columns.map((col) => (
             <th
-              key={index}
+              key={col.key}
               style={{
                 border: "1px solid #ddd",
-                padding: 8,
-                background: "#f3f4f6",
+                padding: "12px",
+                background: "#f1f1f1",
               }}
             >
               {col.title}
             </th>
           ))}
+
+          <th
+            style={{
+              border: "1px solid #ddd",
+              padding: "12px",
+            }}
+          >
+            Actions
+          </th>
         </tr>
       </thead>
 
       <tbody>
-        {data.map((row, i) => (
-          <tr key={i}>
-            {columns.map((col, j) => (
+        {data.map((item) => (
+          <tr key={item.customerId}>
+            {columns.map((col) => (
               <td
-                key={j}
+                key={col.key}
                 style={{
                   border: "1px solid #ddd",
-                  padding: 8,
+                  padding: "10px",
                 }}
               >
-                {col.render ? col.render(row) : row[col.dataIndex]}
+                {item[col.key]}
               </td>
             ))}
+
+            <td
+              style={{
+                border: "1px solid #ddd",
+                padding: "10px",
+              }}
+            >
+              {renderActions(item)}
+            </td>
           </tr>
         ))}
       </tbody>
