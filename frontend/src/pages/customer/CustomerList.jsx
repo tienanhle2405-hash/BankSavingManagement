@@ -20,8 +20,16 @@ function CustomerList() {
   };
 
   useEffect(() => {
+  const load = () => {
     fetchCustomers();
-  }, []);
+  };
+
+  load();
+
+  const interval = setInterval(load, 5000);
+
+  return () => clearInterval(interval);
+}, []);
 
   const handleDelete = async (id) => {
     const confirmDelete = window.confirm(

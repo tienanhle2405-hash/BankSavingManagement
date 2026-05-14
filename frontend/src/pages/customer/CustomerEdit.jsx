@@ -28,8 +28,16 @@ function CustomerEdit() {
   };
 
   useEffect(() => {
-    fetchCustomer();
-  }, []);
+  const load = () => {
+    fetchCustomers();
+  };
+
+  load();
+
+  const interval = setInterval(load, 5000);
+
+  return () => clearInterval(interval);
+}, []);
 
   const handleChange = (e) => {
     setFormData({

@@ -23,8 +23,16 @@ function SavingBookList() {
   };
 
   useEffect(() => {
-    fetchSavingBooks();
-  }, []);
+  const loadData = () => {
+    fetchSavingBook();
+  };
+
+  loadData(); // chạy lần đầu
+
+  const interval = setInterval(loadData, 5000); // 5 giây update 1 lần
+
+  return () => clearInterval(interval);
+}, [id]);
 
   const handleDelete = async (id) => {
     const confirmDelete = window.confirm(

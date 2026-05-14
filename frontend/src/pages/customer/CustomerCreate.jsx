@@ -20,7 +20,17 @@ function CustomerCreate() {
       [e.target.name]: e.target.value,
     });
   };
+useEffect(() => {
+  const load = () => {
+    fetchCustomers();
+  };
 
+  load();
+
+  const interval = setInterval(load, 5000);
+
+  return () => clearInterval(interval);
+}, []);
   const handleSubmit = async (e) => {
     e.preventDefault();
 

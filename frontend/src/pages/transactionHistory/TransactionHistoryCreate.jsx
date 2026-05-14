@@ -11,7 +11,17 @@ function TransactionHistoryCreate() {
     transactionDate: "",
     note: "",
   });
+  useEffect(() => {
+  const loadData = () => {
+    fetchTransactionHistory();
+  };
 
+  loadData(); // chạy lần đầu khi mount
+
+  const interval = setInterval(loadData, 5000); // 5 giây update 1 lần
+
+  return () => clearInterval(interval); // cleanup khi unmount
+}, []);
   const handleChange = (e) => {
     setFormData({
       ...formData,

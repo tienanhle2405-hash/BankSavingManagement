@@ -65,7 +65,17 @@ function SavingBookCreate() {
       setLoading(false);
     }
   };
+  useEffect(() => {
+  const loadData = () => {
+    fetchSavingBook();
+  };
 
+  loadData(); // chạy lần đầu
+
+  const interval = setInterval(loadData, 5000); // 5 giây update 1 lần
+
+  return () => clearInterval(interval);
+}, [id]);
   return (
     <div
       style={{
