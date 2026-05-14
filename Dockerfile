@@ -3,12 +3,10 @@ WORKDIR /src
 
 COPY . .
 
-WORKDIR /src/BankSavingManagement
+RUN dotnet restore BankSavingManagement.csproj
+RUN dotnet publish BankSavingManagement.csproj -c Release -o /app
 
-RUN dotnet restore BankSavingManagement/BankSavingManagement.csproj
-RUN dotnet publish BankSavingManagement/BankSavingManagement.csproj -c Release -o /app
-
-FROM mcr.microsoft.com/dotnet/aspnet:8.0
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app
 
 COPY --from=build /app .
