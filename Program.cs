@@ -7,6 +7,7 @@ using BankSavingManagement.API.Repositories;
 using BankSavingManagement.API.Repositories.Interfaces;
 using BankSavingManagement.API.Services;
 using Backend.Services.Interfaces;
+using Backend.Services;
 using Backend.Data;
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,7 +31,10 @@ builder.Services.AddCors(options =>
 });
 builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 
+
 builder.Services.AddScoped<IAuthService, AuthService>();
+
+builder.Services.AddScoped<ICustomerService, CustomerService>();
 
 builder.Services.AddScoped<JwtHelper>();
 
