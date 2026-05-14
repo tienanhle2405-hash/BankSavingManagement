@@ -289,3 +289,5 @@ C:\ProjectHard\Java_Pj\BankSavingManagement\obj\Debug\net8.0\swae.build.ex.cache
 C:\ProjectHard\Java_Pj\BankSavingManagement\obj\Debug\net8.0\BankSavi.65DE012A.Up2Date
 C:\ProjectHard\Java_Pj\BankSavingManagement\obj\Debug\net8.0\BankSavingManagement.genruntimeconfig.cache
 C:\ProjectHard\Java_Pj\BankSavingManagement\obj\Debug\net8.0\ref\BankSavingManagement.dll
+C:\ProjectHard\Java_Pj\BankSavingManagement\bin\Debug\net8.0\Npgsql.dll
+C:\ProjectHard\Java_Pj\BankSavingManagement\bin\Debug\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll

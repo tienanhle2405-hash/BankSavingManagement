@@ -22,7 +22,7 @@ namespace Backend.Services
             {
                 Id = c.Id,
                 FullName = c.FullName,
-                CCCD = c.CCCD,
+                Email = c.Email,
                 Phone = c.Phone,
                 Address = c.Address
             }).ToList();
@@ -39,7 +39,7 @@ namespace Backend.Services
             {
                 Id = customer.Id,
                 FullName = customer.FullName,
-                CCCD = customer.CCCD,
+                Email = customer.Email,
                 Phone = customer.Phone,
                 Address = customer.Address
             };
@@ -50,7 +50,7 @@ namespace Backend.Services
             var customer = new Customer
             {
                 FullName = dto.FullName,
-                CCCD = dto.CCCD,
+                Email = dto.Email,
                 Phone = dto.Phone,
                 Address = dto.Address
             };
@@ -61,7 +61,7 @@ namespace Backend.Services
             {
                 Id = createdCustomer.Id,
                 FullName = createdCustomer.FullName,
-                CCCD = createdCustomer.CCCD,
+                Email = createdCustomer.Email,
                 Phone = createdCustomer.Phone,
                 Address = createdCustomer.Address
             };
@@ -73,7 +73,7 @@ namespace Backend.Services
             {
                 Id = id,
                 FullName = dto.FullName,
-                CCCD = dto.CCCD,
+                Email = dto.Email,
                 Phone = dto.Phone,
                 Address = dto.Address
             };
@@ -87,7 +87,7 @@ namespace Backend.Services
             {
                 Id = updatedCustomer.Id,
                 FullName = updatedCustomer.FullName,
-                CCCD = updatedCustomer.CCCD,
+                Email = updatedCustomer.Email,
                 Phone = updatedCustomer.Phone,
                 Address = updatedCustomer.Address
             };

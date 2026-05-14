@@ -41,7 +41,7 @@ namespace Backend.Repositories
                 return null;
 
             existingCustomer.FullName = customer.FullName;
-            existingCustomer.CCCD = customer.CCCD;
+            existingCustomer.Email = customer.Email;
             existingCustomer.Phone = customer.Phone;
             existingCustomer.Address = customer.Address;
 
