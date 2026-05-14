@@ -3,7 +3,9 @@ WORKDIR /src
 
 COPY . .
 
+RUN pwd
 RUN ls -la
+RUN find . -name "*.csproj"
 
 RUN dotnet restore BankSavingManagement.csproj
 RUN dotnet publish BankSavingManagement.csproj -c Release -o /app
