@@ -3,12 +3,10 @@ WORKDIR /src
 
 COPY . .
 
-RUN pwd
-RUN ls -la
-RUN find . -name "*.csproj"
+WORKDIR /src/BankSavingManagement
 
-RUN dotnet restore BankSavingManagement.csproj
-RUN dotnet publish BankSavingManagement.csproj -c Release -o /app
+RUN dotnet restore
+RUN dotnet publish -c Release -o /app
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
