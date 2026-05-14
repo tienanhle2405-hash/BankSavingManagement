@@ -11,8 +11,16 @@ using Backend.Services;
 using Backend.Data;
 using Backend.Repositories.Interfaces;
 using Backend.Repositories;
-var builder = WebApplication.CreateBuilder(args);
 
+var builder = WebApplication.CreateBuilder(new WebApplicationOptions
+{
+    Args = args,
+    WebRootPath = "wwwroot"
+});
+
+
+builder.Configuration
+    .AddJsonFile("appsettings.json", optional: false, reloadOnChange: false);
 builder.Services.AddControllers();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
@@ -93,5 +101,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapGet("/", () => "Bank Saving Management API is running");
 
 app.Run();
